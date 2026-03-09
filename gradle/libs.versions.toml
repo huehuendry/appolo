@@ -1,0 +1,80 @@
+[versions]
+
+# Android Gradle Plugin (compatible dengan compileSdk 34)
+agp = "8.5.2"
+# Kotlin stabil untuk Compose
+kotlin = "1.9.24"
+# Google services plugin untuk Firebase
+googleservices = "4.4.4"
+# Firebase BOM agar semua Firebase library sinkron
+# Versi ini stabil dan tidak membutuhkan compileSdk 35
+firebaseBom = "33.1.0"
+# Core Kotlin extensions Android
+coreKtx = "1.13.1"
+# Backward compatibility Android
+appcompat = "1.7.1"
+# Activity Compose support
+activity = "1.9.0"
+# ConstraintLayout (optional jika masih pakai XML)
+constraintlayout = "2.2.1"
+# Material3 Compose UI
+# Versi ini compatible dengan compileSdk 34
+material3 = "1.2.1"
+# Navigation untuk Compose
+navigationCompose = "2.7.7"
+# Lifecycle ViewModel untuk Compose
+lifecycleViewmodelCompose = "2.8.4"
+# Jika masih menggunakan Material XML
+material = "1.11.0"
+
+# Unit testing
+junit = "4.13.2"
+# AndroidX JUnit
+junitVersion = "1.1.5"
+# Espresso UI testing
+espressoCore = "3.5.1"
+
+[libraries]
+
+# Android core utilities
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+# Lifecycle ViewModel untuk Compose
+androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleViewmodelCompose" }
+# Navigation Compose
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
+# Compose UI core
+androidx-ui = { module = "androidx.compose.ui:ui" }
+# Compose Material3
+material3 = { module = "androidx.compose.material3:material3", version.ref = "material3" }
+
+# Firebase BOM
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+# Firebase Analytics
+firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+# Firebase Authentication
+firebase-auth = { module = "com.google.firebase:firebase-auth" }
+
+# AppCompat
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+# Activity library
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+# ConstraintLayout
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+# Material Design XML
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+# Unit testing
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+# Android testing
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+# Espresso testing
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+
+
+[plugins]
+# Android application plugin
+android-application = { id = "com.android.application", version.ref = "agp" }
+# Kotlin Android plugin
+jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+# Google services plugin untuk Firebase
+google-services = { id = "com.google.gms.google-services", version.ref = "googleservices" }
