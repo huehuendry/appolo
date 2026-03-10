@@ -3,30 +3,24 @@ package com.hendry.appolo.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.hendry.appolo.auth.FirebaseAuthRepository
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class LoginViewModel : ViewModel() {
 
-    private val repository = FirebaseAuthRepository()
+    private val repo = FirebaseAuthRepository()
 
-    fun login(
-        email: String,
-        password: String
-    ) {
+    private val _loginResult = MutableStateFlow<Boolean?>(null)
+    val loginResult = _loginResult.asStateFlow()
+
+    fun login(email: String, password: String) {
 
         viewModelScope.launch {
 
-            val result = repository.login(email, password)
+            val result = repo.login(email, password)
 
-            result.onSuccess {
-
-                println("Login Success")
-
-            }.onFailure {
-
-                println("Login Failed")
-
-            }
+            _loginResult.value = result.isSuccess
 
         }
 
