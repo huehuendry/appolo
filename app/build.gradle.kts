@@ -52,6 +52,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.ui.tooling.preview.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -65,8 +66,12 @@ dependencies {
     // Jetpack Compose
     implementation(libs.androidx.ui)
     implementation(libs.androidx.navigation.compose)
+
+    // Material 3
     implementation(libs.material3)
+
 
     // ViewModel
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+    debugImplementation(libs.androidx.ui.tooling)
 }
