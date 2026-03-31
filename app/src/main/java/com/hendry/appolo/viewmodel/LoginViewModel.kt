@@ -14,6 +14,15 @@ class LoginViewModel : ViewModel() {
     private val _loginResult = MutableStateFlow<Boolean?>(null)
     val loginResult = _loginResult.asStateFlow()
 
+    init {
+        checkSession()
+    }
+
+    fun checkSession() {
+        val user = repo.getCurrentUser()
+        _loginResult.value = user != null
+    }
+
     fun login(email: String, password: String) {
 
         viewModelScope.launch {
@@ -26,4 +35,8 @@ class LoginViewModel : ViewModel() {
 
     }
 
+    fun logout() {
+        repo.logout()
+        _loginResult.value = false
+    }
 }

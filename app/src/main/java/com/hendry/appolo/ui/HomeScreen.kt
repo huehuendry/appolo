@@ -9,8 +9,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-
 fun HomeScreen(
+    onLogout: () -> Unit
 ) {
 
     Box(
@@ -18,10 +18,24 @@ fun HomeScreen(
         contentAlignment = Alignment.Center
     ) {
 
-        Text(
-            text = "This is Home Screen ",
-            style = MaterialTheme.typography.headlineSmall
-        )
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+
+            Text(
+                text = "This is Home Screen ",
+                style = MaterialTheme.typography.headlineSmall
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Button(
+                onClick = { onLogout() }
+            ) {
+                Text("Logout")
+            }
+
+        }
 
     }
 
@@ -31,5 +45,6 @@ fun HomeScreen(
 @Composable
 fun HomeScreenPreview() {
     HomeScreen(
+        onLogout = {}
     )
 }

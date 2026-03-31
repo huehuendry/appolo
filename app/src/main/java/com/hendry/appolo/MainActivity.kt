@@ -12,6 +12,7 @@ import com.hendry.appolo.viewmodel.LoginViewModel
 
 class MainActivity : ComponentActivity() {
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -24,16 +25,18 @@ class MainActivity : ComponentActivity() {
             when (loginResult) {
 
                 true -> {
-                    HomeScreen()
+                    HomeScreen(
+                        onLogout = { viewModel.logout() }
+                    )
                 }
 
                 false -> {
-
-                    Toast.makeText(
-                        this,
-                        "Login failed",
-                        Toast.LENGTH_SHORT
-                    ).show()
+//
+//                    Toast.makeText(
+//                        this,
+//                        "Login failed",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
 
                     LoginScreen { email, password ->
                         viewModel.login(email, password)
